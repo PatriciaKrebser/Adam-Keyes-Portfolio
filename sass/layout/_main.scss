@@ -288,7 +288,8 @@ h2 {
       position: absolute;
       width: 530px;
       height: 129px;
-      left: 1149px;
+      left: auto;
+      right: clamp(-480px, calc(-784px + 29.6875vw), -404px);
       top: 270px;
       bottom: auto;
       z-index: 0;
