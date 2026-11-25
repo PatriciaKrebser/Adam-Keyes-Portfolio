@@ -1,0 +1,400 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+
+// MOBILE
+.main {
+  position: relative;
+  background-color: variables.$primary-color;
+  overflow-x: clip;
+
+  // skills
+  &_skills {
+    position: relative;
+    width: 345px;
+    margin-inline: auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    z-index: 1;
+  }
+
+  // skills
+  .skill_box {
+    position: relative;
+    width: 345px;
+    height: 67px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: variables.$primary-font;
+    text-align: center;
+    z-index: 1;
+    h3 {
+      color: variables.$white-font;
+      font-size: 32px;
+      font-weight: variables.$bold-font;
+    }
+    p {
+      color: variables.$grey-font;
+      font-size: 16px;
+      font-weight: variables.$medium-font;
+    }
+  }
+
+  // decoration
+  &_big_oval_container {
+    position: absolute;
+    width: 530px;
+    height: 129px;
+    left: 189px;
+    bottom: -64.5px;
+    z-index: 0;
+  }
+
+  // big oval
+  &_big_oval {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+// projects
+.main_projects {
+  margin-left: 16px;
+  margin-right: 16px;
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.projects_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+h2 {
+  color: variables.$white-font;
+  font-family: variables.$primary-font;
+  font-size: 40px;
+  font-weight: variables.$bold-font;
+}
+.projects_contact {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  color: white;
+  text-decoration: none;
+  font-family: variables.$primary-font;
+  font-weight: variables.$bold-font;
+  letter-spacing: 2.29px;
+  width: 120px;
+  height: 38px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: variables.$green-color;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.project_image {
+  width: 343px;
+  height: 253px;
+  margin-bottom: 20px;
+}
+.project_title {
+  color: variables.$white-font;
+  font-weight: variables.$bold-font;
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+.project_technologies {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  color: variables.$grey-font;
+  font-size: 18px;
+  font-weight: variables.$medium-font;
+  margin-bottom: 20px;
+}
+.main_projects .project_actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.project_actions a {
+  position: relative;
+  display: inline-block;
+  color: variables.$white-font;
+  text-decoration: none;
+  font-family: variables.$primary-font;
+  font-size: 18px;
+  font-weight: variables.$bold-font;
+  letter-spacing: 2.29px;
+  padding-bottom: 14px;
+}
+.project_actions a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: variables.$green-color;
+  bottom: 0;
+  left: 0;
+}
+
+.project_image {
+  margin-top: 40px;
+}
+
+// TABLET
+@include mixins.respond-to(tablet) {
+  .main {
+    padding-top: 60px;
+
+    // skills
+    &_skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+      column-gap: 30px;
+      width: calc(100% - 76px);
+      margin-inline: auto;
+      border-bottom: none;
+    }
+
+    .skill_box {
+      width: auto;
+      height: auto;
+      margin: 30px 0;
+      text-align: left;
+
+      h3 {
+        font-size: 48px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    // decoration
+    &_big_oval_container {
+      position: absolute;
+      width: 530px;
+      height: 129px;
+      left: 540px;
+      top: 340px;
+      bottom: auto;
+      z-index: 0;
+    }
+  }
+
+  // projects
+  .projects_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+    height: 72px;
+    width: 100%;
+    box-sizing: border-box;
+    h2 {
+      font-size: 72px;
+      font-weight: variables.$bold-font;
+    }
+    .projects_contact {
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      color: white;
+      text-decoration: none;
+      font-family: variables.$primary-font;
+      font-weight: variables.$bold-font;
+      letter-spacing: 2.29px;
+      width: 120px;
+      height: 38px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: variables.$green-color;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  .projects_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 60px;
+  }
+
+  .project_image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+// DESKTOP
+@include mixins.respond-to(desktop) {
+  .main {
+    padding-top: 104px;
+
+    // skills
+    &_skills {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      column-gap: 30px;
+      width: 77%;
+      margin-inline: auto;
+      border-bottom: none;
+      padding-top: 72px;
+    }
+
+    .skill_box {
+      width: auto;
+      height: auto;
+      margin: 30px 0;
+      text-align: left;
+
+      h3 {
+        font-size: 48px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    // decoration
+    &_big_oval_container {
+      position: absolute;
+      width: 530px;
+      height: 129px;
+      left: 1149px;
+      top: 270px;
+      bottom: auto;
+      z-index: 0;
+    }
+  }
+
+  // projects
+  .projects_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 140px;
+    height: 72px;
+    width: 77%;
+    margin-inline: auto;
+    box-sizing: border-box;
+    h2 {
+      font-size: 88px;
+      font-weight: variables.$bold-font;
+    }
+    .projects_contact {
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      color: white;
+      text-decoration: none;
+      font-family: variables.$primary-font;
+      font-weight: variables.$bold-font;
+      font-size: 16px;
+      letter-spacing: 2.29px;
+      width: 120px;
+      height: 38px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: variables.$green-color;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  .projects_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 60px;
+    width: 77%;
+    margin-inline: auto;
+  }
+
+  .project_image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .project_card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "preview"
+      "title"
+      "technologies";
+  }
+
+  .project_image {
+    grid-area: preview;
+    transition: filter 0.3s ease;
+  }
+
+  .project_title {
+    grid-area: title;
+  }
+
+  .project_technologies {
+    grid-area: technologies;
+  }
+
+  .project_actions {
+    grid-area: preview;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    a {
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .project_card:hover {
+    .project_image {
+      filter: brightness(0.25);
+    }
+
+    .project_actions {
+      opacity: 1;
+    }
+  }
+}

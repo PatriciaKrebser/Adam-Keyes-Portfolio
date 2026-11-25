@@ -1,0 +1,6 @@
+@use "../abstracts/variables" as variables;
+.container {
+  position: relative;
+  background-color: variables.$primary-color;
+  font-family: variables.$primary-font;
+}

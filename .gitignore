@@ -1,0 +1,15 @@
+
+# Dependencias
+node_modules/
+
+# Archivos generados
+dist/
+css/style.css
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env
+.env.local
